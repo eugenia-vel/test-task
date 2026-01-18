@@ -19,7 +19,6 @@ public class task4 {
             }
             Integer[] array = list.toArray(new Integer[0]);
             Arrays.sort(array);
-            int minSum = 21;
             int pointer = array.length/2;
             HashMap<Integer,Integer> hashMap = new HashMap<>();
             while (pointer > 0 || pointer < array.length) {
@@ -45,7 +44,11 @@ public class task4 {
                 }
                 if (hashMap.get(currentNumber) <= hashMap.get(nextNumber)
                         && hashMap.get(currentNumber) <= hashMap.get(nextNumber)) {
-                    System.out.print(hashMap.get(currentNumber));
+                    if (hashMap.get(currentNumber) > 20) {
+                        System.out.print("20 ходов недостаточно для приведения всех элементов массива к одному числу");
+                    } else {
+                        System.out.print(hashMap.get(currentNumber));
+                    }
                     break;
                 } else if (hashMap.get(currentNumber) > hashMap.get(nextNumber)) {
                     pointer += 1;
